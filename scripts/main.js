@@ -15,6 +15,7 @@ var LeaguesComponent = require('./components/LeaguesComponent');
 var TeamsComponent = require('./components/TeamsComponent');
 var GamesComponent = require('./components/GamesComponent');
 var TicketsComponent = require('./components/TicketsComponent');
+var SellTicketsComponent = require('./components/SellTicketsComponent');
 
 var app = document.getElementById('app');
 
@@ -48,10 +49,13 @@ var Router = Backbone.Router.extend({
 	},
 	games: function(teamId) {
 		ReactDOM.render(<GamesComponent teamId = {teamId} />, app);
+	},
+	tickets: function(gameId) {
+		ReactDOM.render(<TicketsComponent gameId = {gameId} />, app);
+	},
+	sellTickets: function() {
+		ReactDOM.render(<SellTicketsComponent />, app);
 	}
-	// tickets: function(gameId) {
-	// 	ReactDOM.render(<TicketsComponent gameId = {gameId} />, app);
-	// }
 });
 
 var r = new Router();

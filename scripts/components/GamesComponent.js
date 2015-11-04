@@ -14,15 +14,15 @@ module.exports = React.createClass({
 	},
 	componentWillMount: function(e) {
 		var team = new TeamModel({objectId: this.props.teamId});
-		var firstTeamQuery = new Parse.Query(GameModel).include('teams');
+		var firstTeamQuery = new Parse.Query(GameModel);
 		firstTeamQuery.equalTo('team1', team)
-		var secondTeamQuery = new Parse.Query(GameModel).include('teams');
+		var secondTeamQuery = new Parse.Query(GameModel);
 		secondTeamQuery.equalTo('team2', team)
-		var startDateQuery = new Parse.Query(GameModel);
-		startDateQuery.find().then(
-			(games) => {
-				this.setState({games: games})
-			});
+		// var startDateQuery = new Parse.Query(GameModel);
+		// startDateQuery.find().then(
+		// 	(games) => {
+		// 		this.setState({games: games})
+			// });
 		
 		
 		var mainQuery = Parse.Query.or(firstTeamQuery, secondTeamQuery);
@@ -50,15 +50,13 @@ module.exports = React.createClass({
 		var myState = this.state.games;
 		//var gameDate = this.state.games.map.startDate;
 		var allGames = myState.map(function(game, index) {
-			var prefix = '#games/';
+			var prefix = '#tickets/';
 			var url = prefix+game.id;
 			var timeStart = `${game.get('startDate').getHours()}:${game.get('startDate').getMinutes()}`;
 			var location = `${game.get('location')}`;
 			console.log(game.get("location"));
 			return <div key = {index}> 
-						<a href = {url}> {game.get('team1').get('teamName')}</a>
-						 <span> vs </span> 
-						<a href = {url}>{game.get('team2').get('teamName')}</a>
+						<a href = {url}> {game.get('team1').get('teamName')} vs {game.get('team2').get('teamName')}</a>
 						<span>{` ${game.get('startDate').toDateString()} at ${timeStart},  ${location}`}</span>
 					</div>
 		});
@@ -69,7 +67,9 @@ module.exports = React.createClass({
 				<div className = "gamesComponent">
 					<h1 className = "gamesHeader">Select a game to view available tickets</h1>
 					<h3 className = "gamesContent">Games</h3>
+					<div className = "gamesList">
 					{allGames}
+					</div>
 				</div>
 			</div>
 		);
