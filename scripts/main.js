@@ -16,6 +16,7 @@ var TeamsComponent = require('./components/TeamsComponent');
 var GamesComponent = require('./components/GamesComponent');
 var TicketsComponent = require('./components/TicketsComponent');
 var SellTicketsComponent = require('./components/SellTicketsComponent');
+var ViewTicketsComponent = require('./components/ViewTicketsComponent');
 
 var app = document.getElementById('app');
 
@@ -24,6 +25,7 @@ var Router = Backbone.Router.extend({
 		'': 'home',
 		'register': 'register',
 		'login': 'login',
+		'logout': 'logout',
 		'leagues': 'leagues',
 		'sellTickets': 'sellTickets',
 		'viewTickets': 'viewTickets',
@@ -35,11 +37,18 @@ var Router = Backbone.Router.extend({
 	home: function() {
 		ReactDOM.render(<HomePageComponent />, app);
 	},
+	logout: function() {
+		Parse.User.logOut();
+		this.navigate('', {trigger: true});
+	},
+	viewTickets: function() {
+		ReactDOM.render(<ViewTicketsComponent />, app);
+	},
 	register: function() {
-		ReactDOM.render(<RegisterComponent />, app);
+		ReactDOM.render(<RegisterComponent router = {this} />, app);
 	},
 	login: function() {
-		ReactDOM.render(<LoginComponent />, app);
+		ReactDOM.render(<LoginComponent router = {this} />, app);
 	},
 	leagues: function() {
 		ReactDOM.render(<LeaguesComponent />, app);
@@ -54,7 +63,12 @@ var Router = Backbone.Router.extend({
 		ReactDOM.render(<TicketsComponent gameId = {gameId} />, app);
 	},
 	sellTickets: function() {
-		ReactDOM.render(<SellTicketsComponent />, app);
+		if (Parse.User.current()) {
+			ReactDOM.render(<SellTicketsComponent />, app);
+		}
+		else {
+			ReactDOM.render(<LoginComponent router = {this} />, app);
+		}
 	}
 });
 
@@ -65,3 +79,34 @@ ReactDOM.render(
 	<NavigationComponent router={r} />,
 	document.getElementById('nav')
 );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

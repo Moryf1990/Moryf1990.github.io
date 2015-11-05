@@ -10,7 +10,7 @@ module.exports=React.createClass({
 			<div className="registrationContainer">
 
 				<div className="registrationRow">
-					<RegistrationComponent />
+					<RegistrationComponent router={this.props.router} />
 					<AlreadyRegisteredComponent />							
 				</div>		
 			</div>

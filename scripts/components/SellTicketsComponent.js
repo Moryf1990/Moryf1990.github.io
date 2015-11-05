@@ -1,9 +1,9 @@
 var React = require('react');
+var ReactDOM = require('react-dom')
 var TicketModel = require('../models/TicketModel');
 var TeamModel = require('../models/TeamModel');
 var LeagueModel = require('../models/LeagueModel');
 var GameModel = require('../models/GameModel');
-var TicketModel = require('../models/TicketModel');
 
 module.exports = React.createClass({
 	getInitialState: function() {
@@ -68,12 +68,12 @@ module.exports = React.createClass({
 		});
 
 		var allGames = this.state.games.map(function(game, index) {
-			return <option key = {index}>{game.get('team1').get('teamName')}  vs {game.get('team2').get('teamName')} on {game.get('startDate').toDateString()}</option>
+			return <option value={game.id} key = {index}>{game.get('team1').get('teamName')}  vs {game.get('team2').get('teamName')} on {game.get('startDate').toDateString()}</option>
 		});
 
 
 		return (
-		<div className = "col-sm-12" onSubmit = {this.onPostTickets}>
+		<div className = "col-sm-12" >
 			<div className = "sellTicketsComponent">
 				<h1 className = "sellTicketsHeader">Sell Tickets Here</h1>
 				{errorElement}
@@ -98,7 +98,7 @@ module.exports = React.createClass({
 
 
 				<div>
-					<select className = "sellTicketsSelect3">
+					<select ref="game" className = "sellTicketsSelect3">
 						<option value = "">Choose Game</option>
 						{allGames}
 					</select>
@@ -110,7 +110,7 @@ module.exports = React.createClass({
 				</div>
 
 				<div>
-					<button className = "sellTicketsButton">Post Tickets For Sale</button>
+					<button onClick = {this.onPostTickets} className = "sellTicketsButton">Post Tickets For Sale</button>
 				</div>
 			</div>
 		</div>
@@ -119,10 +119,17 @@ module.exports = React.createClass({
 	},
 	onPostTickets: function(e) {
 		e.preventDefault();
+		console.log(this.refs.game.value);
+		var targetGameModel = new GameModel({objectId: this.refs.game.value})
 		var ticket = new TicketModel();
-		ticket.set('seat', this.refs.seat.getDOMNode().value);
-		ticket.set('price', this.refs.price.getDOMNode().value);
-		ticket.save();
+		ticket.set('seat', this.refs.seat.value);
+		ticket.set('price', parseFloat(this.refs.price.value));
+		ticket.set('game', targetGameModel);
+		ticket.save({
+				success: (u) => {
+					console.log('success');
+				}			
+			});
 	}
 });
 
