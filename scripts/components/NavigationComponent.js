@@ -14,7 +14,7 @@ module.exports = React.createClass({
 			links.push(<li className = "navList" key = {'navlist2'}><a href = "#leagues">VIEW SCHEDULES AND PURCHASE TICKETS</a></li>);
 			links.push(<li className = "navList" key = {'navlist3'}><a href = "#sellTickets">SELL TICKETS</a></li>);
 			links.push(<li className = "navList" key = {'navlist4'}><a href = "#viewTickets">VIEW YOUR TICKETS</a></li>);
-			links.push(<li className = "navList" key = {'navlist6'}><a href = "#logout">LOGOUT</a></li>);
+			links.push(<li className = "navList" key = {'navlist7'}><a href = "#logout">LOGOUT</a></li>);
 		}
 
 		else {

@@ -26,6 +26,7 @@ var Router = Backbone.Router.extend({
 		'register': 'register',
 		'login': 'login',
 		'logout': 'logout',
+		'confirmation': 'confirmation',
 		'leagues': 'leagues',
 		'sellTickets': 'sellTickets',
 		'viewTickets': 'viewTickets',
@@ -50,6 +51,9 @@ var Router = Backbone.Router.extend({
 	login: function() {
 		ReactDOM.render(<LoginComponent router = {this} />, app);
 	},
+	confirmation: function() {
+		ReactDOM.render(<HomePageComponent />, app);
+	},
 	leagues: function() {
 		ReactDOM.render(<LeaguesComponent />, app);
 	},
@@ -60,7 +64,7 @@ var Router = Backbone.Router.extend({
 		ReactDOM.render(<GamesComponent teamId = {teamId} />, app);
 	},
 	tickets: function(gameId) {
-		ReactDOM.render(<TicketsComponent gameId = {gameId} />, app);
+		ReactDOM.render(<TicketsComponent gameId = {gameId} router = {this} />, app);
 	},
 	sellTickets: function() {
 		if (Parse.User.current()) {
