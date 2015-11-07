@@ -17,6 +17,7 @@ var GamesComponent = require('./components/GamesComponent');
 var TicketsComponent = require('./components/TicketsComponent');
 var SellTicketsComponent = require('./components/SellTicketsComponent');
 var ViewTicketsComponent = require('./components/ViewTicketsComponent');
+var ConfirmationComponent = require('./components/ConfirmationComponent');
 
 var app = document.getElementById('app');
 
@@ -52,7 +53,7 @@ var Router = Backbone.Router.extend({
 		ReactDOM.render(<LoginComponent router = {this} />, app);
 	},
 	confirmation: function() {
-		ReactDOM.render(<HomePageComponent />, app);
+		ReactDOM.render(<ConfirmationComponent />, app);
 	},
 	leagues: function() {
 		ReactDOM.render(<LeaguesComponent />, app);
