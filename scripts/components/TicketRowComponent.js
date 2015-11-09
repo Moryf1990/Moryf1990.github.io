@@ -6,9 +6,9 @@ module.exports = React.createClass({
 	render: function() {
 		return (
 			<section>
-				{this.props.ticket.get('seat')}
-				{this.props.ticket.get('price')}
+				<div>{this.props.ticket.get('seat')}</div>
+				<div>{this.props.ticket.get('price')}</div>			
 			</section>
 		);
 	}
-})
+});

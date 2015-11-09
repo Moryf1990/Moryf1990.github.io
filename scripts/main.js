@@ -69,7 +69,7 @@ var Router = Backbone.Router.extend({
 	},
 	sellTickets: function() {
 		if (Parse.User.current()) {
-			ReactDOM.render(<SellTicketsComponent />, app);
+			ReactDOM.render(<SellTicketsComponent router = {this} />, app);
 		}
 		else {
 			ReactDOM.render(<LoginComponent router = {this} />, app);

@@ -125,9 +125,10 @@ module.exports = React.createClass({
 		ticket.set('seat', this.refs.seat.value);
 		ticket.set('price', parseFloat(this.refs.price.value));
 		ticket.set('game', targetGameModel);
+		ticket.set('userTickets', Parse.User.current());
 		ticket.save({
 				success: (u) => {
-					console.log('success');
+					this.props.router.navigate('viewTickets', {trigger: true});
 				}			
 			});
 	}

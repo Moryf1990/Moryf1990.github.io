@@ -56,8 +56,8 @@ module.exports = React.createClass({
 			var location = `${game.get('location')}`;
 			console.log(game.get("location"));
 			return <div key = {index}> 
-						<a href = {url}> {game.get('team1').get('teamName')} vs {game.get('team2').get('teamName')}</a>
-						<span>{` ${game.get('startDate').toDateString()} at ${timeStart},  ${location}`}</span>
+						<a href = {url} className = "games"> {game.get('team1').get('teamName')} vs {game.get('team2').get('teamName')}
+						<span>{` ${game.get('startDate').toDateString()} at ${timeStart}pm, ${location}`}</span></a>
 					</div>
 		});
 
