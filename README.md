@@ -33,4 +33,5 @@ https://www.linkedin.com/profile/preview?locale=en_US&trk=prof-0-sb-preview-prim
 https://twitter.com/mory115
 
 https://www.facebook.com/mory.friedman
->>>>>>> 533ee3b0865ba272e315a649205c35f30478a758
+
+https://www.tumblr.com/blog/june1990-me
