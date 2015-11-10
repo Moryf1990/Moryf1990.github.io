@@ -42,7 +42,6 @@ module.exports = React.createClass({
 					<div className = "viewTicketsComponent">
 						<h1 className = "viewTicketsHeader">Welcome</h1>
 						<h3 className = "viewTicketsContent">These are the tickets you currently have for sale!!!</h3>
-						<h3 className = "viewTicketsContent">Click on any of the tickets below to remove them.</h3>
 						<div className = "viewTicketsList">
 						<div>	
 						{allTickets}
