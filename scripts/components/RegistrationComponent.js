@@ -16,16 +16,20 @@ module.exports = React.createClass({
 		return(
 				<div className = "col-sm-9">
 					<div className = "registrationComponent">
-						<form onSubmit = {this.onRegister}>
-							<h1 className = "registrationHeader">Register Here</h1>
-							{errorElement}
-								<input className = "registrationInput" ref = "firstName" placeholder = "First Name"></input>
-								<input className = "registrationInput" ref = "lastName" placeholder = "Last Name"></input>
-								<input className = "registrationInput" ref = "email" placeholder = "Email"></input>
-								<input className = "registrationInput" ref = "username" placeholder = "Username"></input>
-								<input type="password" className = "registrationInput" ref = "password" placeholder = "Password"></input>
-								<button className = "registrationButton">Register</button>
-						</form>
+						<div className = "row">
+							<div className = "col-sm-8 col-sm-offset-2">
+								<form onSubmit = {this.onRegister}>
+									<h1 className = "registrationHeader">Register Here</h1>
+									{errorElement}
+										<input className = "registrationInput" ref = "firstName" placeholder = "First Name"></input>
+										<input className = "registrationInput" ref = "lastName" placeholder = "Last Name"></input>
+										<input className = "registrationInput" ref = "email" placeholder = "Email"></input>
+										<input className = "registrationInput" ref = "username" placeholder = "Username"></input>
+										<input type="password" className = "registrationInput" ref = "password" placeholder = "Password"></input>
+										<button className = "registrationButton">Register</button>
+								</form>
+							</div>
+						</div>
 					</div>
 				</div>
 		);

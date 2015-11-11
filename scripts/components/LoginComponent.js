@@ -16,6 +16,8 @@ module.exports = React.createClass({
 		return(
 			<div className = "col-sm-12">
 				<div className = "loginComponent">
+				<div className = "row">
+				<div className = "col-sm-6 col-sm-offset-3"> 
 					<form onSubmit = {this.onLogin}>
 						<h1 className = "loginHeader">Login</h1>
 						{errorElement}
@@ -23,6 +25,8 @@ module.exports = React.createClass({
 						<input type="password" className = "loginInput" ref = "password" placeholder = "Password"></input>
 						<button className = "loginButton">Submit</button>
 					</form>
+					</div>
+					</div>
 				</div>
 			</div>
 		);

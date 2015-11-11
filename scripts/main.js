@@ -4,6 +4,7 @@ var ReactDOM = require('react-dom');
 var Backbone = require('backbone');
 window.$ = require('jquery');
 window.jQuery = $;
+require('bootstrap');
 
 Parse.initialize('rlCCtr8vPduQu6HqiVCyzINmmCQXs7DidOLHUXdh', 'ZYobph6clkbAn5vjwUKOcAnMgRkvOE5GLxINCW5f');
 

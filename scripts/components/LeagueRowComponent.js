@@ -8,7 +8,7 @@ module.exports = React.createClass({
 			<section>
 				<button className = "leagueButton">
 					<div className = "leagueList">{this.props.league.get('leagueName')}</div>
-						<img src= {this.props.league.get('logo').url()} alt="Smiley face" height="70" width="70" />
+						<img src= {this.props.league.get('logo').url()} alt="Smiley face" height="70" />
 				</button>
 			</section>
 		);

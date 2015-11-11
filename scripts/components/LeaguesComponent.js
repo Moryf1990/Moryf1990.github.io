@@ -65,7 +65,7 @@ module.exports = React.createClass({
 			console.log(league);
 			var prefix = '#teams/';
 			var url = prefix+league.id;
-			return <a href = {url} key = {league.id}><LeagueRowComponent league={league}/></a>
+			return <a className = "leagueLink" href = {url} key = {league.id}><LeagueRowComponent league={league}/></a>
 		});
 		return (
 			// <div className = "leagueContainer">
@@ -86,7 +86,7 @@ module.exports = React.createClass({
 			<div className = "col-sm-12">
 				<div className = "leaguesContainer">
 					<div className = "leaguesRow">
-					<h1 className = "leaguesHeader">Choose Your League to View All Teams Within That League</h1>
+					<h1 className = "leaguesHeader">Select a League</h1>
 				</div>
 				<div>
 					<div>
