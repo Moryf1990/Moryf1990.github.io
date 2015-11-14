@@ -22,13 +22,10 @@ module.exports = React.createClass({
 		query.equalTo('league', league)
 		query.find().then(
 				(teams) => {
-					// var teamsByLeague = _.groupBy(teams) {
-					// 	return team.get('leagueId')
-					// }
 				this.setState({teams: teams})
 				console.log(teams);
 				}
-			)
+			);
 		},
 
 	onTeamChange: function(e) {
@@ -53,9 +50,6 @@ module.exports = React.createClass({
 
 
 	render: function() {
-		// // e.preventDefault();
-		// // var query = new Parse.Query(TeamModel).indlude('leagues');
-		// // var teamName = Parse.Object.extend('teamName');
 		var errorElement = null;
 		if(this.state.error) {
 			errorElement = (
@@ -73,51 +67,50 @@ module.exports = React.createClass({
 
 
 		return (
-		<div className = "col-sm-12" >
-			<div className = "sellTicketsComponent">
-				<div className = "row">
-					<div className = "col-sm-6 col-sm-offset-3">
-						<h1 className = "sellTicketsHeader">Sell Tickets Here</h1>
-						{errorElement}
-						<div>
-							<select className = "sellTicketsSelect1 form-control" ref = "league" onChange ={this.onLeagueChange} >
-								<option value = "">Choose League</option>
-								<option value = "1spFvfUk7l">NFL</option>
-								<option value = "ZfIRzEVu5Z">NBA</option>
-								<option value = "BBi7kCNTjT">MLB</option>
-								<option value = "ohLqUQbBl2">NHL</option>
-								<option value = "YIjNdEB6vh">MLS</option>
-							</select>
-						</div>
+			<div className = "col-sm-12" >
+				<div className = "sellTicketsComponent">
+					<div className = "row">
+						<div className = "col-sm-6 col-sm-offset-3">
+							<h1 className = "sellTicketsHeader">Sell Tickets Here</h1>
+							{errorElement}
+							<div>
+								<select className = "sellTicketsSelect1 form-control" ref = "league" onChange ={this.onLeagueChange} >
+									<option value = "">Choose League</option>
+									<option value = "1spFvfUk7l">NFL</option>
+									<option value = "ZfIRzEVu5Z">NBA</option>
+									<option value = "BBi7kCNTjT">MLB</option>
+									<option value = "ohLqUQbBl2">NHL</option>
+									<option value = "YIjNdEB6vh">MLS</option>
+								</select>
+							</div>
 
-						<div>
-							<select className = "sellTicketsSelect2 form-control" ref = "team" onChange = {this.onTeamChange}>
-								<option value = "">Choose Team</option>
-								{allTeams}
-							</select>
-						</div>
+							<div>
+								<select className = "sellTicketsSelect2 form-control" ref = "team" onChange = {this.onTeamChange}>
+									<option value = "">Choose Team</option>
+									{allTeams}
+								</select>
+							</div>
 
 
-						<div>
-							<select ref="game" className = "sellTicketsSelect3 form-control">
-								<option value = "">Choose Game</option>
-								{allGames}
-							</select>
-						</div>
+							<div>
+								<select ref="game" className = "sellTicketsSelect3 form-control">
+									<option value = "">Choose Game</option>
+									{allGames}
+								</select>
+							</div>
 
-						<div>
-							<input className = "seatInput" placeholder = "seat" ref = "seat" /> 
-							<input className = "priceInput" placeholder = "price" ref = "price" />
-						</div>
+							<div>
+								<input className = "seatInput" placeholder = "seat" ref = "seat" /> 
+								<input className = "priceInput" placeholder = "price" ref = "price" />
+							</div>
 
-						<div>
-							<button onClick = {this.onPostTickets} className = "sellTicketsButton">Post Tickets For Sale</button>
+							<div>
+								<button onClick = {this.onPostTickets} className = "sellTicketsButton">Post Tickets For Sale</button>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-
 		);
 	},
 	onPostTickets: function(e) {
@@ -133,7 +126,7 @@ module.exports = React.createClass({
 				success: (u) => {
 					this.props.router.navigate('viewTickets', {trigger: true});
 				}			
-			});
+		});
 	}
 });
 

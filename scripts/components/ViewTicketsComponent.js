@@ -27,6 +27,7 @@ module.exports = React.createClass({
 			}
 		);
 	},
+
 	render: function() {
 		var myState = this.state.tickets;
 		var self = this;
@@ -37,18 +38,19 @@ module.exports = React.createClass({
 						<button> <span>{`${seat}, $${price}`} </span></button>
 					</div>
 		});
-			return(
-				<div className = "col-sm-12">
-					<div className = "viewTicketsComponent">
-						<h1 className = "viewTicketsHeader">Welcome</h1>
-						<h3 className = "viewTicketsContent">These are the tickets you currently have for sale!!!</h3>
-						<div className = "viewTicketsList">
-						<div>	
-						{allTickets}
-						</div>
-						</div>
+		
+		return(
+			<div className = "col-sm-12">
+				<div className = "viewTicketsComponent">
+					<h1 className = "viewTicketsHeader">Welcome</h1>
+					<h3 className = "viewTicketsContent">These are the tickets you currently have for sale!!!</h3>
+					<div className = "viewTicketsList">
+					<div>	
+					{allTickets}
+					</div>
 					</div>
 				</div>
-			)
+			</div>
+		);
 	}
 });

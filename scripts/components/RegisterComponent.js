@@ -14,6 +14,6 @@ module.exports=React.createClass({
 					<AlreadyRegisteredComponent />							
 				</div>		
 			</div>
-		)
+		);
 	}
 })

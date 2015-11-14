@@ -17,18 +17,10 @@ module.exports = React.createClass({
 		var firstTeamQuery = new Parse.Query(GameModel);
 		firstTeamQuery.equalTo('team1', team)
 		var secondTeamQuery = new Parse.Query(GameModel);
-		secondTeamQuery.equalTo('team2', team)
-		// var startDateQuery = new Parse.Query(GameModel);
-		// startDateQuery.find().then(
-		// 	(games) => {
-		// 		this.setState({games: games})
-			// });
-		
-		
+		secondTeamQuery.equalTo('team2', team)		
 		var mainQuery = Parse.Query.or(firstTeamQuery, secondTeamQuery);
 		mainQuery.include('team1');
 		mainQuery.include('team2');
-		//mainQuery.include('startDate');
 		mainQuery.greaterThanOrEqualTo('startDate', new Date);
 		mainQuery.find().then(
 				(games) => {
@@ -37,18 +29,10 @@ module.exports = React.createClass({
 				}
 			);
 		},
-	 
-	//  giveDate: function() {
-	// 	var allGames = this.state.games.map(function(game) {
-	// 		var prefix = '#games/';
-	// 		var url = prefix+game.id;
-	//  	});
-	// },
 
 	render: function() {
 		console.log('render', this.state.games);
 		var myState = this.state.games;
-		//var gameDate = this.state.games.map.startDate;
 		var allGames = myState.map(function(game, index) {
 			var prefix = '#tickets/';
 			var url = prefix+game.id;
@@ -73,5 +57,5 @@ module.exports = React.createClass({
 				</div>
 			</div>
 		);
-	},
+	}
 });

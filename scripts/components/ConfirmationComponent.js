@@ -12,6 +12,6 @@ module.exports = React.createClass({
 						<h3 className = "confirmationContent">Hope you enjoy the game!!</h3>
 				</div>
 			</div>
-		)
+		);
 	}
 });
